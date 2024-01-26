@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lili's Playful Proposal</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f8e8a2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2em;
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #noColumn {
+            font-size: 2em;
+            color: #FF5733;
+            position: absolute;
+            animation: moveNo 3s infinite;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes moveNo {
+            0% {
+                top: 0;
+                left: 0;
+            }
+            50% {
+                top: 50%;
+                left: 50%;
+            }
+            100% {
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hey Lili,</h1>
+    <p>Life is an adventure, and I want to spend mine with you. Will you embark on this journey with me?</p>
+
+    <button onclick="propose('yes')">Yes</button>
+    <div id="noColumn" onclick="moveNo()">No</div>
+
+    <script>
+        function propose(answer) {
+            if (answer === 'yes') {
+                alert("Yay! 🎉 Lili said Yes! 💍");
+            } else {
+                alert("Oh no! The No column is elusive. Keep trying!");
+            }
+        }
+
+        function moveNo() {
+            var noColumn = document.getElementById('noColumn');
+            var maxX = window.innerWidth - noColumn.clientWidth;
+            var maxY = window.innerHeight - noColumn.clientHeight;
+
+            var newX = Math.floor(Math.random() * maxX);
+            var newY = Math.floor(Math.random() * maxY);
+
+            noColumn.style.left = newX + 'px';
+            noColumn.style.top = newY + 'px';
+        }
+    </script>
+
+</body>
+</html>
